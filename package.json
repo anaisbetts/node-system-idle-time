@@ -1,6 +1,6 @@
 {
   "name": "system-idle-time",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Returns system idle time in seconds",
   "main": "addon.js",
   "scripts": {
@@ -19,11 +19,9 @@
   "author": "",
   "license": "Apache-2.0",
   "gypfile": true,
-  "dependencies": {
-    "bindings": "~1.2.1"
-  },
   "homepage": "https://bitbucket.org/rbergman/system-idle-time#readme",
   "dependencies": {
-    "nan": "^1.8.4"
+    "nan": "^1.8.4",
+    "bindings": "~1.2.1"
   }
 }
