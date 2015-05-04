@@ -1,12 +1,16 @@
 #include <node.h>
-#include "mac/idle.h"
+#include "idle.h"
+
+#if OS == WIN
+#include <stdint.h>
+#endif
 
 using namespace v8;
 
 void Method(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = Isolate::GetCurrent();
   HandleScope scope(isolate);
-  int64_t idle = SystemIdleTime();
+  uint32_t idle = SystemIdleTime();
   args.GetReturnValue().Set(Integer::New(isolate, idle));
 }
 

@@ -1,12 +1,33 @@
 {
   "targets": [{
     "target_name": "system-idle-time",
+    "sources": [
+      "src/module.cc"
+    ],
+    "include_dirs": [
+      "<!(node -e require('nan'))"
+    ],
     "conditions": [
       ['OS=="mac"', {
-        "sources": ["src/module.cc", "src/mac/idle.cc"],
+        "defines": [
+          "OS=1"
+        ],
+        "sources": ["src/mac/idle.cc"],
         "xcode_settings": {
           "OTHER_CPLUSPLUSFLAGS": ["-std=c++11", "-stdlib=libc++", "-mmacosx-version-min=10.7"],
           "OTHER_LDFLAGS": ["-framework CoreFoundation -framework IOKit"]
+        }
+      }],
+      ['OS=="win"', {
+        "defines": [
+          "OS=2"
+        ],
+        "sources": ["src/win/idle.cc"],
+        'msvs_settings': {
+#          'VCCLCompilerTool': {
+#            'ExceptionHandling': '2',
+#            'DisableSpecificWarnings': [ '4530', '4506' ],
+#          }
         }
       }]
     ]

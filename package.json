@@ -21,6 +21,6 @@
   "gypfile": true,
   "homepage": "https://bitbucket.org/rbergman/system-idle-time#readme",
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "nan": "^1.8.4"
   }
 }

@@ -5,8 +5,8 @@
  Returns the number of seconds the machine has been idle or -1 if an error occurs.
  The code is compatible with Tiger/10.4 and later (but not iOS).
  */
-int64_t SystemIdleTime(void) {
-  int64_t idlesecs = -1;
+int32_t SystemIdleTime(void) {
+  int32_t idlesecs = -1;
   io_iterator_t iter = 0;
   if (IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IOHIDSystem"), &iter) == KERN_SUCCESS) {
     io_registry_entry_t entry = IOIteratorNext(iter);
@@ -17,7 +17,7 @@ int64_t SystemIdleTime(void) {
         if (obj) {
           int64_t nanoseconds = 0;
           if (CFNumberGetValue(obj, kCFNumberSInt64Type, &nanoseconds)) {
-            idlesecs = (nanoseconds >> 30); // Divide by 10^9 to convert from nanoseconds to seconds.
+            idlesecs = (int32_t) (nanoseconds >> 30); // Divide by 10^9 to convert from nanoseconds to seconds.
           }
         }
         CFRelease(dict);
