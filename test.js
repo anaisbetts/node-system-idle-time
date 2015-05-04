@@ -1,4 +1,4 @@
-var system = require('./build/Release/system-idle-time');
+var system = require('./addon');
 
 setInterval(function () {
   console.log(system.getIdleTime());

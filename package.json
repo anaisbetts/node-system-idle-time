@@ -2,7 +2,7 @@
   "name": "system-idle-time",
   "version": "0.1.1",
   "description": "Returns system idle time in seconds",
-  "main": "index.js",
+  "main": "addon.js",
   "scripts": {
     "test": "node test.js",
     "install": "node-gyp rebuild"
@@ -19,6 +19,9 @@
   "author": "",
   "license": "Apache-2.0",
   "gypfile": true,
+  "dependencies": {
+    "bindings": "~1.2.1"
+  },
   "homepage": "https://bitbucket.org/rbergman/system-idle-time#readme",
   "dependencies": {
     "nan": "^1.8.4"

@@ -1,6 +1,6 @@
 {
   "targets": [{
-    "target_name": "system-idle-time",
+    "target_name": "addon",
     "sources": [
       "src/module.cc"
     ],
