@@ -5,7 +5,7 @@
       "src/module.cc"
     ],
     "include_dirs": [
-      "<!(node -e require('nan'))"
+      "<!(iojs -e \"require('nan')\")"
     ],
     "conditions": [
       ['OS=="mac"', {
