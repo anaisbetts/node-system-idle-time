@@ -22,13 +22,7 @@
         "defines": [
           "OS=2"
         ],
-        "sources": ["src/win/idle.cc"],
-        'msvs_settings': {
-#          'VCCLCompilerTool': {
-#            'ExceptionHandling': '2',
-#            'DisableSpecificWarnings': [ '4530', '4506' ],
-#          }
-        }
+        "sources": ["src/win/idle.cc"]
       }]
     ]
   }]
