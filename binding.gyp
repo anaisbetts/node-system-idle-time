@@ -5,7 +5,7 @@
       "src/module.cc"
     ],
     "include_dirs": [
-      "node_modules/nan"
+      "<!(node -e \"require('nan')\")"
     ],
     "conditions": [
       ['OS=="mac"', {
