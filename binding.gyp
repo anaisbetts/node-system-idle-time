@@ -5,7 +5,7 @@
       "src/module.cc"
     ],
     "include_dirs": [
-      "<!(iojs -e \"require('nan')\")"
+      "node_modules/nan"
     ],
     "conditions": [
       ['OS=="mac"', {
@@ -35,7 +35,16 @@
             "AdditionalOptions": ["/ignore:4199"],
           },
         }
+     }],
+     ['OS=="linux"', {
+       "defines": [
+        "OS=3"
+      ],
+      "sources": [
+        "src/linux/idle.cc"
+      ]
      }]
+
     ]
   }]
 }

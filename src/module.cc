@@ -1,17 +1,13 @@
-#include <node.h>
+#include "nan.h"
 #include "idle.h"
-
-#if OS == WIN
-#include <stdint.h>
-#endif
 
 using namespace v8;
 
-void Method(const FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = Isolate::GetCurrent();
-  HandleScope scope(isolate);
+static NAN_METHOD(Method) {
+  NanScope();
+
   uint32_t idle = SystemIdleTime();
-  args.GetReturnValue().Set(Integer::New(isolate, idle));
+  NanReturnValue(idle);
 }
 
 void init(Handle<Object> exports) {
