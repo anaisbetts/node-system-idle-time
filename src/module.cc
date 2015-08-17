@@ -1,17 +1,18 @@
-#include "nan.h"
+#include "module.h"
 #include "idle.h"
 
 using namespace v8;
 
-static NAN_METHOD(Method) {
+NAN_METHOD(IdleTime::GetIdleTime) {
   NanScope();
 
-  uint32_t idle = SystemIdleTime();
+  uint32_t idle;
+  idle = SystemIdleTime();
   NanReturnValue(idle);
 }
 
-void init(Handle<Object> exports) {
-  NODE_SET_METHOD(exports, "getIdleTime", Method);
+void IdleTime::Init(Handle<Object> exports) {
+  NODE_SET_METHOD(exports, "getIdleTime", IdleTime::GetIdleTime);
 }
 
-NODE_MODULE(addon, init)
+NODE_MODULE(system_idle_time, IdleTime::Init)
