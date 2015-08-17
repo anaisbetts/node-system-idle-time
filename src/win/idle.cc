@@ -11,6 +11,6 @@ uint32_t SystemIdleTime(void) {
 	lif.cbSize = sizeof(lif);
 	if (!GetLastInputInfo(&lif)) return -1;
 	uint64_t tickCount = GetTickCount64();
-	uint32_t IdleTime = (uint32_t)((tickCount - (uint64_t)lif.dwTime) / 1000);
+	uint32_t IdleTime = (uint32_t)((tickCount - (uint64_t)lif.dwTime));
 	return IdleTime;
 }

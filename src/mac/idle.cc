@@ -17,7 +17,7 @@ int32_t SystemIdleTime(void) {
         if (obj) {
           int64_t nanoseconds = 0;
           if (CFNumberGetValue(obj, kCFNumberSInt64Type, &nanoseconds)) {
-            idlesecs = (int32_t) (nanoseconds >> 30); // Divide by 10^9 to convert from nanoseconds to seconds.
+            idlesecs = (int32_t) (nanoseconds / 1000L*1000L);
           }
         }
         CFRelease(dict);
