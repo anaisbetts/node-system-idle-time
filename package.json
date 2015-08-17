@@ -1,5 +1,5 @@
 {
-  "name": "system-idle-time",
+  "name": "@paulcbetts/system-idle-time",
   "version": "0.1.4",
   "description": "Returns system idle time in seconds",
   "main": "addon.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/rbergman/system-idle-time.git"
+    "url": "https://github.com/paulcbetts/node-system-idle-time"
   },
   "keywords": [
     "system",
@@ -21,7 +21,7 @@
   "gypfile": true,
   "homepage": "https://bitbucket.org/rbergman/system-idle-time#readme",
   "dependencies": {
-    "nan": "^1.8.4",
+    "nan": "*",
     "bindings": "~1.2.1"
   }
 }
