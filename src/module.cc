@@ -4,15 +4,15 @@
 using namespace v8;
 
 NAN_METHOD(IdleTime::GetIdleTime) {
-  NanScope();
+  Nan::HandleScope scope;
 
   uint32_t idle;
   idle = SystemIdleTime();
-  NanReturnValue(idle);
+  info.GetReturnValue().Set(idle);
 }
 
 void IdleTime::Init(Handle<Object> exports) {
-  NODE_SET_METHOD(exports, "getIdleTime", IdleTime::GetIdleTime);
+  Nan::SetMethod(exports, "getIdleTime", IdleTime::GetIdleTime);
 }
 
 NODE_MODULE(system_idle_time, IdleTime::Init)
