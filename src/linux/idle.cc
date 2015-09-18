@@ -12,8 +12,12 @@
 static int has_extension = -1;
 
 uint32_t SystemIdleTime(void) {
-  Display *dpy = XOpenDisplay(NULL);
+  Display* dpy = XOpenDisplay(NULL);
   int event_base, error_base;
+
+  if (!dpy) {
+    return 0;
+  }
 
   if (has_extension == -1) {
     has_extension = XScreenSaverQueryExtension(dpy, &event_base, &error_base);
@@ -24,6 +28,9 @@ uint32_t SystemIdleTime(void) {
   }
 
   XScreenSaverInfo info;
-  XScreenSaverQueryInfo(dpy, RootWindow(dpy, DefaultScreen(dpy)), &info);
+  Window wnd = RootWindow(dpy, DefaultScreen(dpy));
+  if (!wnd) return 60 * 60 * 1000;
+
+  XScreenSaverQueryInfo(dpy, wnd, &info);
   return (info.idle);
 }
