@@ -1,6 +1,6 @@
 {
   "name": "@paulcbetts/system-idle-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Returns system idle time in seconds",
   "main": "addon.js",
   "scripts": {
