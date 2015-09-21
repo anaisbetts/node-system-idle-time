@@ -25,12 +25,10 @@
           "OS=2"
         ],
         "sources": [
-          "src/win/delay_load_hook.c",
           "src/win/idle.cc"
         ],
         "msvs_settings": {
           "VCLinkerTool": {
-            "DelayLoadDLLs": ["iojs.exe", "node.exe"],
             # Don't print a linker warning when no imports from either .exe are used.
             "AdditionalOptions": ["/ignore:4199"],
           },
@@ -41,7 +39,7 @@
         "OS=3"
       ],
       'variables': {
-	'pkg-config': 'pkg-config' 
+	'pkg-config': 'pkg-config'
       },
       "sources": [
         "src/linux/idle.cc"
