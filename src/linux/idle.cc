@@ -24,6 +24,7 @@ uint32_t SystemIdleTime(void) {
   }
 
   if (!has_extension) {
+    XCloseDisplay(dpy);
     return 0;
   }
 
@@ -32,5 +33,6 @@ uint32_t SystemIdleTime(void) {
   if (!wnd) return 60 * 60 * 1000;
 
   XScreenSaverQueryInfo(dpy, wnd, &info);
+  XCloseDisplay(dpy);
   return (info.idle);
 }
