@@ -15,6 +15,8 @@ uint32_t SystemIdleTime(void) {
   Display* dpy = XOpenDisplay(NULL);
   int event_base, error_base;
   uint32_t idle_time = 0;
+  XScreenSaverInfo info;
+  Window wnd;
 
   if (!dpy) {
     return 0;
@@ -28,8 +30,7 @@ uint32_t SystemIdleTime(void) {
     goto out;
   }
 
-  XScreenSaverInfo info;
-  Window wnd = RootWindow(dpy, DefaultScreen(dpy));
+  wnd = RootWindow(dpy, DefaultScreen(dpy));
 
   if (!wnd) {
     idle_time = 60*60*1000;
