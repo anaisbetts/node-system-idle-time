@@ -16,7 +16,7 @@
           "src/mac/idle.cc"
         ],
         "xcode_settings": {
-          "OTHER_CPLUSPLUSFLAGS": ["-std=c++11", "-stdlib=libc++", "-mmacosx-version-min=10.7"],
+          "OTHER_CPLUSPLUSFLAGS": ["-std=c++11", "-stdlib=libc++"],
           "OTHER_LDFLAGS": ["-framework CoreFoundation -framework IOKit"]
         }
       }],
