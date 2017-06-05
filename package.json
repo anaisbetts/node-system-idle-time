@@ -1,5 +1,5 @@
 {
-  "name": "node-system-idle-time",
+  "name": "system-idle-time",
   "version": "1.0.2",
   "description": "Returns system idle time in seconds",
   "main": "addon.js",
