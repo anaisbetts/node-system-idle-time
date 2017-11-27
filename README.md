@@ -2,6 +2,18 @@
 
 A native node addon for obtaining system idle time in seconds.
 
+## Pre-requisites
+
+### Linux
+
+For Linux, you need `libxss-dev` and `libxext-dev`.
+
+In Ubuntu 16.04, you could install them with:
+
+```bash
+sudo apt-get install libxss-dev libxext-dev
+```
+
 ## Install
 
 To install it in your project run:
