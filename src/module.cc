@@ -11,7 +11,7 @@ NAN_METHOD(IdleTime::GetIdleTime) {
   info.GetReturnValue().Set(idle);
 }
 
-void IdleTime::Init(Handle<Object> exports) {
+void IdleTime::Init(Local<Object> exports) {
   Nan::SetMethod(exports, "getIdleTime", IdleTime::GetIdleTime);
 }
 

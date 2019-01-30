@@ -7,7 +7,7 @@ using namespace v8;
 
 class IdleTime {
 public:
-  static void Init(Handle<Object> exports);
+  static void Init(Local<Object> exports);
   static NAN_METHOD(GetIdleTime);
 };
 
