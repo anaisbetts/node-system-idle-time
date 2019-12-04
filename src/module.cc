@@ -11,8 +11,12 @@ NAN_METHOD(IdleTime::GetIdleTime) {
   info.GetReturnValue().Set(idle);
 }
 
-void IdleTime::Init(Local<Object> exports) {
-  Nan::SetMethod(exports, "getIdleTime", IdleTime::GetIdleTime);
+NAN_MODULE_INIT(Init) {
+  Nan::SetMethod(target, "getIdleTime", IdleTime::GetIdleTime);
 }
 
-NODE_MODULE(system_idle_time, IdleTime::Init)
+#if NODE_MAJOR_VERSION >= 10
+NAN_MODULE_WORKER_ENABLED(system_idle_time, Init)
+#else
+NODE_MODULE(system_idle_time, Init)
+#endif
